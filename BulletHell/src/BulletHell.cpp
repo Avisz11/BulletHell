@@ -6,7 +6,7 @@
 int main()
 {
 	Window window(800, 600, "Bullet Hell");
-	Player player(50.0f, "res/Textures/Player.png");
+	Player player(200.0f, "res/Textures/Player.png");
 
 	while (!WindowShouldClose())
 	{

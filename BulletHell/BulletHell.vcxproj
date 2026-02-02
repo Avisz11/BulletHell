@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\BulletSpawner.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\BulletHell.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bullet.h" />
+    <ClInclude Include="src\BulletSpawner.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
