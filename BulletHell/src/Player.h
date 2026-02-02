@@ -12,7 +12,6 @@ private:
 
 public:
 	Player(float speed, const char* path);
-	void MovePlayer();
-	void RenderPlayer();
+	void Update();
 };
 

@@ -2,6 +2,10 @@
 #include <raylib.h>
 class Bullet
 {
+
+private:
+	float radius = 5.0f;
+
 public:
 	Vector2 dir = { 0.0f, 0.0f };
 	float speed = 300.0f;
@@ -9,8 +13,7 @@ public:
 
 public:
 	Bullet();
-	void MoveBullet();
-	void RenderBull
+	void Update();
 
 };
 

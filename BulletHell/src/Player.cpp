@@ -10,7 +10,7 @@ Player::Player(float speed, const char* path)
 	UnloadImage(image);
 }
 
-void Player::MovePlayer()
+void Player::Update()
 {
 	dir = { 0.0f, 0.0f };
 	
@@ -37,11 +37,7 @@ void Player::MovePlayer()
 	position.x += dir.x * speed * GetFrameTime();
 	position.y += dir.y * speed * GetFrameTime();
 
-}
-
-void Player::RenderPlayer()
-{
 	DrawTexture(texture, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
-}
 
+}
 
