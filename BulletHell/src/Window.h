@@ -12,6 +12,7 @@ public:
 public:
 	Window(int window_width, int window_height, const char* window_name);
 	Window();
+	~Window();
 	inline Color GetBgColor() const { return bg_color; }
 };
 

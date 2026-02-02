@@ -18,4 +18,9 @@ Window::Window()
 	InitWindow(this->window_width, this->window_height, "Bullet Hell");
 }
 
+Window::~Window()
+{
+	CloseWindow();
+}
+
 
