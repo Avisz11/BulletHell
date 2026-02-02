@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="BulletHell/BulletHell.vcxproj" Id="dce866bd-bfa5-4dd2-9083-21ef139063c1" />
+</Solution>
