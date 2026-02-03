@@ -8,7 +8,7 @@ int main()
 {
 	Window window(800, 600, "Bullet Hell");
 	Player player(200.0f, "res/Textures/Player.png");
-	BulletSpawner spawner(0.2f, 10.0f, 6, 1.5f);
+	BulletSpawner spawner(0.2f, 10.0f, 6, 1.5f, Vector2(window.window_width/2, 100));
 	spawner.StartShooting();
 
 	while (!WindowShouldClose())
@@ -20,7 +20,7 @@ int main()
 
 		spawner.Update(window.window_width, window.window_height);
 
-		player.Update();
+		player.Update(window.window_width, window.window_height);
 
 		EndDrawing();
 

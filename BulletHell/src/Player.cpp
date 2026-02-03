@@ -10,7 +10,7 @@ Player::Player(float speed, const char* path)
 	UnloadImage(image);
 }
 
-void Player::Update()
+void Player::Update(int screen_width, int screen_height)
 {
 	dir = { 0.0f, 0.0f };
 	
@@ -36,6 +36,25 @@ void Player::Update()
 
 	position.x += dir.x * speed * GetFrameTime();
 	position.y += dir.y * speed * GetFrameTime();
+
+	if (position.x < 0)
+	{
+		position.x = 0;
+	}
+	else if (position.x > screen_width - texture.width)
+	{
+		position.x = screen_width - texture.width;
+	}
+
+	if (position.y < 0)
+	{
+		position.y = 0;
+	}
+	else if (position.y > screen_height - texture.height)
+	{
+		position.y = screen_height - texture.height;
+	}
+
 
 	DrawTexture(texture, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
 
