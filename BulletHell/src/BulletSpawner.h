@@ -10,11 +10,14 @@ private:
 	float time_since_last_shot = 0.0f;
 	bool can_shoot = false;
 
+
+
 public:
 	float time_between_shots;
 	float radius;
 	int spawn_points;
 	float angle_interval;
+
 
 	float rotation_speed;
 
@@ -25,9 +28,10 @@ public:
 
 
 public:
-	BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed);
+	BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed, Vector2 position);
+
 	void Shoot();
-	void Update();
+	void Update(int screen_width, int screen_height);
 
 	void StartShooting();
 	void StopShooting();

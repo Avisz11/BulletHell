@@ -18,10 +18,12 @@ int main()
 
 		ClearBackground(window.GetBgColor());
 
-		spawner.Update();
+		spawner.Update(window.window_width, window.window_height);
+
 		player.Update();
 
 		EndDrawing();
+
 	}
 
 }

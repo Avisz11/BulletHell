@@ -2,19 +2,21 @@
 #include "Bullet.h"
 #include <raymath.h>
 
-BulletSpawner::BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed)
+BulletSpawner::BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed, Vector2 position)
 {
 	this->time_between_shots = time_between_shots;
 	this->radius = radius;
 	this->spawn_points = spawn_points;
 	this->rotation_speed = rotation_speed;
+	this->position = position;
 
-
+	angle_interval = 0.0f;
 
 	if (spawn_points > 0)
 	{
 		angle_interval = PI * 2.0f / spawn_points;
 	}
+
 
 }
 
@@ -38,13 +40,24 @@ void BulletSpawner::Shoot()
 	}	
 }
 
-void BulletSpawner::Update()
+void BulletSpawner::Update(int screen_width, int screen_height)
 {
 	rotation += rotation_speed * GetFrameTime();
 
-	for (auto &b : bullets)
+	for (auto it = bullets.begin(); it != bullets.end();)
 	{
-		b.Update();
+		Bullet& b = *it;
+
+		if (b.position.x > screen_width + b.radius || b.position.x < -b.radius || b.position.y > screen_height + b.radius || b.position.y < -b.radius)
+		{
+			it = bullets.erase(it); //After b is ereased the iterator will be invalid so setting it to erase will point it to the next
+			// so dont increment the iterator
+		}
+		else
+		{
+			b.Update();
+			++it;
+		}
 	}
 
 
