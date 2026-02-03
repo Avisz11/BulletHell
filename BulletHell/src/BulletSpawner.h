@@ -12,6 +12,7 @@ private:
 
 
 
+
 public:
 	float time_between_shots;
 	float radius;
