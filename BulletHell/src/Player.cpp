@@ -56,7 +56,10 @@ void Player::Update(int screen_width, int screen_height)
 	}
 
 
-	DrawTexture(texture, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
+}
 
+void Player::Draw()
+{
+	DrawTexture(texture, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
 }
 

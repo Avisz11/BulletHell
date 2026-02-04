@@ -15,5 +15,6 @@ private:
 public:
 	Player(float speed, const char* path);
 	void Update(int screen_width, int screen_height);
+	void Draw();
 };
 

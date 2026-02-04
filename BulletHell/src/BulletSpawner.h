@@ -9,6 +9,7 @@ private:
 	float rotation = 0.0f;
 	float time_since_last_shot = 0.0f;
 	bool can_shoot = false;
+	float bullet_speed = 300.0f;
 
 
 
@@ -33,8 +34,11 @@ public:
 
 	void Shoot();
 	void Update(int screen_width, int screen_height);
+	void DrawBullets();
 
 	void StartShooting();
 	void StopShooting();
+
+	void SetBulletSpeed(float speed);
 };
 

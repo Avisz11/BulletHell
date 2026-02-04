@@ -13,6 +13,7 @@ public:
 public:
 	Bullet();
 	void Update();
+	void Draw();
 	~Bullet();
 
 };

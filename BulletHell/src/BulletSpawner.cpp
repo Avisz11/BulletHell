@@ -35,6 +35,8 @@ void BulletSpawner::Shoot()
 
 		bullet.dir = dir;
 
+		bullet.speed = bullet_speed;
+
 		bullets.push_back(bullet);
 
 	}	
@@ -73,6 +75,14 @@ void BulletSpawner::Update(int screen_width, int screen_height)
 	}
 }
 
+void BulletSpawner::DrawBullets()
+{
+	for (auto& b : bullets)
+	{
+		b.Draw();
+	}
+}
+
 void BulletSpawner::StartShooting()
 {
 	can_shoot = true;
@@ -81,4 +91,13 @@ void BulletSpawner::StartShooting()
 void BulletSpawner::StopShooting()
 {
 	can_shoot = false;
+}
+
+void BulletSpawner::SetBulletSpeed(float new_speed)
+{
+	bullet_speed = new_speed;
+	for (auto& b : bullets)
+	{
+		b.speed = new_speed;
+	}
 }
