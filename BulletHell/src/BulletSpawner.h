@@ -15,6 +15,7 @@ private:
 
 
 
+
 public:
 	float time_between_shots;
 	float radius;
@@ -28,6 +29,7 @@ public:
 	std::vector<Bullet> bullets;
 
 	Vector2 position = { 400.0f, 300.0f };
+	Color bullet_color = { 255, 0, 0, 255 };
 
 
 

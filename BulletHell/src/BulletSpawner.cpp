@@ -47,6 +47,7 @@ void BulletSpawner::Shoot()
 		bullets.push_back(bullet);
 
 	}
+
 	if(sfx_enabled)
 		PlaySound(bullet_sound);
 
@@ -89,7 +90,7 @@ void BulletSpawner::DrawBullets()
 {
 	for (auto& b : bullets)
 	{
-		b.Draw();
+		b.Draw(bullet_color);
 	}
 }
 

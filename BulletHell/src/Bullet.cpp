@@ -13,9 +13,9 @@ void Bullet::Update()
 
 }
 
-void Bullet::Draw()
+void Bullet::Draw(Color color)
 {
-	DrawCircle(static_cast<int>(position.x), static_cast<int>(position.y), radius, RED);
+	DrawCircle(static_cast<int>(position.x), static_cast<int>(position.y), radius, color);
 }
 
 Bullet::~Bullet()
