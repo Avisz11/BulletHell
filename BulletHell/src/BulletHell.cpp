@@ -15,9 +15,12 @@
 
 int main()
 {
+	InitAudioDevice();
+
 	Window window(800, 600, "Bullet Hell");
 
 	float speed_slider_val = 50.0f;
+	int spawn_points_slider_val = 5;
 	
 
 
@@ -36,9 +39,10 @@ int main()
 
 	bool spawn_mode = false;
 	bool ui_disabled = false;
+	bool sfx_enabled = true;
 
 
-	Rectangle settings_rect = { 0, 0, 300, 200 };
+	Rectangle settings_rect = { 0, 0, 300, 250 };
 
 
 	while (!WindowShouldClose())
@@ -53,9 +57,13 @@ int main()
 		for (auto& s : spawners)
 		{
 			s.Update(window.window_width, window.window_height);
+			s.SetBulletSpeed(speed_slider_val);
+			s.SetSpawnPoints(roundf(spawn_points_slider_val));
+			s.sfx_enabled = sfx_enabled;
 
 		}
 
+		
 		
 
 		player.Update(window.window_width, window.window_height);
@@ -80,6 +88,7 @@ int main()
 				Vector2 mouse_pos = GetMousePosition();
 				spawners.emplace_back(0.2f, 10.0f, 6, 1.5f, mouse_pos);
 				spawners.back().StartShooting();
+			
 			}
 		}
 			
@@ -87,7 +96,6 @@ int main()
 		for (auto& s : spawners)
 		{
 			s.DrawBullets();
-			s.SetBulletSpeed(speed_slider_val);
 		}
 
 		player.Draw();
@@ -98,11 +106,18 @@ int main()
 			GuiWindowBox(settings_rect, "Properties");
 
 			GuiLabel({ 20, 40, 100, 20 }, "Bullet Velocity");
-			GuiSlider({ 20, 60, 200, 20 }, nullptr, "1000", &speed_slider_val, 0.0f, 1000.0f);
+			GuiSlider({ 20, 60, 200, 20 }, "0", "1000", &speed_slider_val, 0.0f, 1000.0f);
 
 			GuiCheckBox({ 20, 90, 20, 20 }, "Spawn Mode (Press V)", &spawn_mode);
 
-			GuiLabel({ 80, 180, 150, 20 }, "Press Y to toggle UI");
+			GuiLabel({ 20, 120, 100, 20 }, "Spawn points");
+			GuiSpinner({ 20, 140, 200, 20 }, nullptr, &spawn_points_slider_val, 1, 20, false);
+
+			GuiCheckBox({ 20, 170, 20, 20 }, "SFX Enabled", &sfx_enabled);
+
+
+			GuiLabel({ 80, 230, 150, 20 }, "Press Y to toggle UI");
+			
 		}
 
 
@@ -111,5 +126,8 @@ int main()
 		EndDrawing();
 
 	}
+
+	CloseAudioDevice();
+	CloseWindow();
 
 }

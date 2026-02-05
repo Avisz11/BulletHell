@@ -11,6 +11,7 @@ private:
 	bool can_shoot = false;
 	float bullet_speed = 300.0f;
 
+	Sound bullet_sound;
 
 
 
@@ -19,7 +20,8 @@ public:
 	float radius;
 	int spawn_points;
 	float angle_interval;
-
+	
+	bool sfx_enabled = true;
 
 	float rotation_speed;
 
@@ -31,6 +33,7 @@ public:
 
 public:
 	BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed, Vector2 position);
+	~BulletSpawner();
 
 	void Shoot();
 	void Update(int screen_width, int screen_height);
@@ -40,5 +43,6 @@ public:
 	void StopShooting();
 
 	void SetBulletSpeed(float speed);
+	void SetSpawnPoints(int points);
 };
 

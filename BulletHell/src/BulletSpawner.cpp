@@ -4,6 +4,7 @@
 
 BulletSpawner::BulletSpawner(float time_between_shots, float radius, int spawn_points, float rotation_speed, Vector2 position)
 {
+	bullet_sound = LoadSound("res/Sfx/Boom.wav");
 	this->time_between_shots = time_between_shots;
 	this->radius = radius;
 	this->spawn_points = spawn_points;
@@ -12,16 +13,22 @@ BulletSpawner::BulletSpawner(float time_between_shots, float radius, int spawn_p
 
 	angle_interval = 0.0f;
 
+}
+
+BulletSpawner::~BulletSpawner()
+{
+	UnloadSound(bullet_sound);
+}
+
+void BulletSpawner::Shoot()
+
+{
+
 	if (spawn_points > 0)
 	{
 		angle_interval = PI * 2.0f / spawn_points;
 	}
 
-
-}
-
-void BulletSpawner::Shoot()
-{
 	for (int i = 0; i < spawn_points; i++)
 	{
 		float angle = angle_interval * i + rotation;
@@ -39,7 +46,10 @@ void BulletSpawner::Shoot()
 
 		bullets.push_back(bullet);
 
-	}	
+	}
+	if(sfx_enabled)
+		PlaySound(bullet_sound);
+
 }
 
 void BulletSpawner::Update(int screen_width, int screen_height)
@@ -100,4 +110,9 @@ void BulletSpawner::SetBulletSpeed(float new_speed)
 	{
 		b.speed = new_speed;
 	}
+}
+
+void BulletSpawner::SetSpawnPoints(int points)
+{
+	spawn_points = points;
 }
