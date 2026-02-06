@@ -25,7 +25,7 @@ int main()
 	
 
 
-	Player player(200.0f, "res/Textures/Player.png");
+	Player player(200.0f, "res/Textures/Player.png", 10.0f);
 
 	std::vector<std::unique_ptr<BulletSpawner>> spawners;
 
@@ -80,7 +80,20 @@ int main()
 		player.Update(window.window_width, window.window_height);
 
 
-		//Spawn mode logic
+
+		for (auto& s : spawners)
+		{
+			for (auto& b : s->bullets)
+			{
+				if (CheckCollisionCircles(player.position, player.radius, b.position, b.radius))
+				{
+					player.Die();
+				}
+			}
+		}
+
+
+
 
 		if (IsKeyPressed(KEY_Y))
 		{
@@ -144,10 +157,24 @@ int main()
 
 			GuiCheckBox({ 20, 170, 20, 20 }, "SFX Enabled", &sfx_enabled);
 
+
 			if (GuiDropdownBox({ 20, 200, 200, 20 }, "Red;Green;Blue", &color_index, color_dropdown_open))
 			{
 				color_dropdown_open = !color_dropdown_open;
 			}
+
+			GuiCheckBox({ 20, 230, 20, 20 }, "Immortal", &player.immortal);
+
+			if (!player.alive)
+			{
+				if (GuiButton({ 20, 260, 50, 20 }, "Respawn"))
+				{
+					player.alive = true;
+				}
+			}
+
+			
+
 
 
 

@@ -1,17 +1,24 @@
 #include "Player.h"
 #include "raylib.h"
+#include <iostream>
 #include "raymath.h"
 
-Player::Player(float speed, const char* path)
+Player::Player(float speed, const char* path, float radius)
 {
 	this->speed = speed;
 	this->image = LoadImage(path);
+	this->radius = radius;
 	texture = LoadTextureFromImage(image);
 	UnloadImage(image);
 }
 
 void Player::Update(int screen_width, int screen_height)
 {
+	if (!alive)
+	{
+		return;
+	}
+
 	dir = { 0.0f, 0.0f };
 	
 	if (IsKeyDown(KEY_UP))
@@ -60,6 +67,19 @@ void Player::Update(int screen_width, int screen_height)
 
 void Player::Draw()
 {
-	DrawTexture(texture, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
+	if (!alive)
+	{
+		return;
+	}
+	DrawCircle(static_cast<int>(position.x), static_cast<int>(position.y), radius, BLUE);
+}
+
+void Player::Die()
+{
+	if (immortal)
+	{
+		return;
+	}
+	alive = false;
 }
 
