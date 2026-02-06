@@ -2,10 +2,10 @@
 
 
 #include <iostream>
-#include <raylib.h>
+#include "raylib.h"
 
 #define RAYGUI_IMPLEMENTATION
-#include <raygui.h>
+#include "raygui.h"
 
 
 #include "Window.h"
@@ -19,7 +19,7 @@ int main()
 
 	Window window(800, 600, "Bullet Hell");
 
-	float speed_slider_val = 50.0f;
+	float speed_slider_val = 300.0f;
 	int spawn_points = 5;
 	int last_spawn_points = spawn_points;
 	

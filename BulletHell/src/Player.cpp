@@ -1,6 +1,6 @@
 #include "Player.h"
-#include <raylib.h>
-#include <raymath.h>
+#include "raylib.h"
+#include "raymath.h"
 
 Player::Player(float speed, const char* path)
 {
