@@ -26,7 +26,7 @@ int main()
 	
 
 
-	Player player(200.0f, "res/Textures/Player.png", 10.0f);
+	Player player(200.0f, 10.0f);
 
 	std::vector<std::unique_ptr<BulletSpawner>> spawners;
 
@@ -46,7 +46,7 @@ int main()
 	int color_index = 0;
 
 
-	Rectangle settings_rect = { 0, 0, 300, 350 };
+	Rectangle settings_rect = { 0, 0, 300, 370 };
 	bool color_dropdown_open = false;
 
 	while (!WindowShouldClose())
@@ -178,12 +178,15 @@ int main()
 			GuiLabel({ 20, 280, 100, 20 }, "Time between shots");
 			GuiSlider({ 20, 300, 200, 20 }, "0s", "1s", &interval_slider_val, 0.0f, 1.0f);
 
-			
+			if (GuiButton({ 20, 330, 50, 20 }, "Clear"))
+			{
+				spawners.clear();
+			}
 
 
 
 
-			GuiLabel({ 80, 330, 150, 20 }, "Press Y to toggle UI");
+			GuiLabel({ 80, 350, 150, 20 }, "Press Y to toggle UI");
 			
 		}
 

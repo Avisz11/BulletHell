@@ -3,13 +3,13 @@
 #include <iostream>
 #include "raymath.h"
 
-Player::Player(float speed, const char* path, float radius)
+Player::Player(float speed, float radius)
 {
 	this->speed = speed;
-	this->image = LoadImage(path);
+	//this->image = LoadImage(path);
 	this->radius = radius;
-	texture = LoadTextureFromImage(image);
-	UnloadImage(image);
+	//texture = LoadTextureFromImage(image);
+	//UnloadImage(image);
 }
 
 void Player::Update(int screen_width, int screen_height)
@@ -48,18 +48,18 @@ void Player::Update(int screen_width, int screen_height)
 	{
 		position.x = 0;
 	}
-	else if (position.x > screen_width - texture.width)
+	else if (position.x > screen_width - radius)
 	{
-		position.x = screen_width - texture.width;
+		position.x = screen_width - radius;
 	}
 
 	if (position.y < 0)
 	{
 		position.y = 0;
 	}
-	else if (position.y > screen_height - texture.height)
+	else if (position.y > screen_height - radius)
 	{
-		position.y = screen_height - texture.height;
+		position.y = screen_height - radius;
 	}
 
 

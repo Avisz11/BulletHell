@@ -9,7 +9,7 @@ private:
 	Vector2 dir = { 0.0f, 0.0f };
 	int screen_width;
 	int screen_height;
-	Texture2D texture;
+	//Texture2D texture;
 
 public:
 	Vector2 position = { 400.0f, 300.0f };
@@ -19,7 +19,7 @@ public:
 
 
 public:
-	Player(float speed, const char* path, float radius);
+	Player(float speed, float radius);
 	void Update(int screen_width, int screen_height);
 	void Draw();
 	void Die();
