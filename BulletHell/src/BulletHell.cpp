@@ -21,6 +21,7 @@ int main()
 
 	float speed_slider_val = 300.0f;
 	int spawn_points = 5;
+	float interval_slider_val = 0.2f;
 	int last_spawn_points = spawn_points;
 	
 
@@ -45,7 +46,7 @@ int main()
 	int color_index = 0;
 
 
-	Rectangle settings_rect = { 0, 0, 300, 300 };
+	Rectangle settings_rect = { 0, 0, 300, 350 };
 	bool color_dropdown_open = false;
 
 	while (!WindowShouldClose())
@@ -62,6 +63,7 @@ int main()
 			s->Update(window.window_width, window.window_height);
 			s->SetBulletSpeed(speed_slider_val);
 			s->sfx_enabled = sfx_enabled;
+			s->time_between_shots = interval_slider_val;
 		}
 
 		if (spawn_points != last_spawn_points)
@@ -173,12 +175,15 @@ int main()
 				}
 			}
 
+			GuiLabel({ 20, 280, 100, 20 }, "Time between shots");
+			GuiSlider({ 20, 300, 200, 20 }, "0s", "1s", &interval_slider_val, 0.0f, 1.0f);
+
 			
 
 
 
 
-			GuiLabel({ 80, 280, 150, 20 }, "Press Y to toggle UI");
+			GuiLabel({ 80, 330, 150, 20 }, "Press Y to toggle UI");
 			
 		}
 
