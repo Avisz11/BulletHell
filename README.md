@@ -8,7 +8,8 @@ Multiple bullet spawners
 Adjustable velocity, count, interval and bullet color
 Sound effects toggle
 
-##Controls
+
+## Controls
 V - Toggle spawn mode
 Y - Toggle UI
 Left Click (while in spawn mode) - Place spawner
