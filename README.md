@@ -13,3 +13,6 @@ Sound effects toggle
 V - Toggle spawn mode
 Y - Toggle UI
 Left Click (while in spawn mode) - Place spawner
+
+## Build Project
+To build the project just run the GenerateProject.bat or alternatively open a terminal and run <i>Tools\premake\premake5.exe vs2026</i>
