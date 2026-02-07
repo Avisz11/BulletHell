@@ -15,4 +15,4 @@ Y - Toggle UI
 Left Click (while in spawn mode) - Place spawner
 
 ## Build Project
-To build the project just run the GenerateProject.bat or alternatively open a terminal and run <i>Tools\premake\premake5.exe vs2026</i>
+To build the project just run the GenerateProject.bat or if that does not work open a terminal and run <i>Tools\premake\premake5.exe vs[YOUR VISUAL STUDIO VERSION i.e 2022, 2026 ETC.]</i>
