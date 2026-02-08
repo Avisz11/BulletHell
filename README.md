@@ -18,9 +18,13 @@ Left Click (while in spawn mode) - Place spawner
 To build the project, open a terminal in the premake5 directory.
 Then run:
 
-<i> premake5 <generator> </i>
+<i> premake5 generator </i>
+
+
 for example:
-<i> premake5 vs2026 </i> 
+
+<i> premake5 vs2026 </i>
+
 <i> premake5 gmake2 </i>
 
 
