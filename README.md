@@ -15,17 +15,17 @@ Y - Toggle UI
 Left Click (while in spawn mode) - Place spawner
 
 ## Build Project
-To build the project, open a terminal in the premake5 directory.
+To build the project, open a terminal in the directory containing premake5.lua
 Then run:
 
-<i> premake5 generator </i>
+<i> Tools\premake\premake5.exe vs[generator] </i>
 
 
 for example:
 
-<i> premake5 vs2026 </i>
+<i> Tools\premake\premake5.exe vs2026 </i>
 
-<i> premake5 gmake2 </i>
+<i> Tools\premake\premake5.exe gmake2 </i>
 
 
 
