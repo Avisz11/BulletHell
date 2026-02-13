@@ -18,7 +18,7 @@ Left Click (while in spawn mode) - Place spawner
 To build the project, open a terminal in the directory containing premake5.lua
 Then run:
 
-<i> Tools\premake\premake5.exe vs[generator] </i>
+<i> Tools\premake\premake5.exe [generator] </i>
 
 
 for example:
